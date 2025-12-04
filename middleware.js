@@ -9,7 +9,7 @@ export function middleware(request) {
 
     const country = request.geo?.country || "BR";
 
-    if (country === "US") {
+    if (country === "BR") {
         return NextResponse.next();
     }
 
