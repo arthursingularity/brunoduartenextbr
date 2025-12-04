@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Poppins Thin';
+  src: url('/fontes/Poppins-Thin.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins Extra Light';
+  src: url('/fontes/Poppins-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins Light';
+  src: url('/fontes/Poppins-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins Regular';
+  src: url('/fontes/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins Medium';
+  src: url('/fontes/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins SemiBold';
+  src: url('/fontes/Poppins-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins Bold';
+  src: url('/fontes/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins ExtraBold';
+  src: url('/fontes/Poppins-ExtraBold.ttf');
+}
+
+@theme {
+  --font-thin: "Poppins Thin";
+  --font-extralight: "Poppins Extra Light";
+  --font-light: "Poppins Light";
+  --font-regular: "Poppins Regular";
+  --font-medium: "Poppins Medium";
+  --font-psemibold: "Poppins SemiBold";
+  --font-bold: "Poppins Bold";
+  --font-extrabold: "Poppins ExtraBold";
+
+  --color-bgreen: #aaff00;
+  --color-verde: #4ce560;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(17, 17, 17);
+}
+
+.buttonHover:hover {
+  filter: brightness(80%);
+  cursor: pointer;
+}
