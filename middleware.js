@@ -8,7 +8,7 @@ export function middleware(request) {
 
     console.log("Country header:", country);
 
-    if (country === "BR") {
+    if (country === "US") {
         return NextResponse.next();
     }
 
