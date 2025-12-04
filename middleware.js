@@ -4,7 +4,7 @@ export function middleware(request) {
   const country = request.geo?.country || "UNKNOWN";
 
   // Permite acesso para os EUA
-  if (country === "US") {
+  if (country === "BR") {
     return NextResponse.next();
   }
 
