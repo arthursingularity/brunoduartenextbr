@@ -3,19 +3,18 @@ import { NextResponse } from "next/server";
 export const runtime = "edge";
 
 export function middleware(request) {
-    const country = request.geo?.country;
 
-    // Se não for BR, bloqueia
-    if (country !== "BR") {
-        const url = request.nextUrl.clone();
-        url.pathname = "/blocked"; // página de bloqueio
-        return NextResponse.rewrite(url);
+    const country = request.geo?.country || "BR";
+
+    if (country === "BR") {
+        return NextResponse.next();
     }
 
-    // Se for BR, libera o acesso
-    return NextResponse.next();
+    const url = request.nextUrl.clone();
+    url.pathname = "/blocked";
+    return NextResponse.rewrite(url);
 }
 
 export const config = {
-    matcher: "/:path*", // aplica em todas as rotas
+    matcher: "/:path*",
 };
