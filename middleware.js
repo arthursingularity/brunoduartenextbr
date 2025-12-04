@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
+    console.log("Geo detectado:", request.geo);
+    console.log("País detectado:", request.geo?.country);
+
     const country = request.geo?.country || "UNKNOWN";
 
     // Permite acesso para os EUA
@@ -12,9 +15,6 @@ export function middleware(request) {
     const url = request.nextUrl.clone();
     url.pathname = "/blocked";
     return NextResponse.rewrite(url);
-
-    console.log("Geo detectado:", request.geo);
-    console.log("País detectado:", request.geo?.country);
     // Se preferir bloquear com erro 403:
     // return new NextResponse("Acesso bloqueado", { status: 403 });
 }
