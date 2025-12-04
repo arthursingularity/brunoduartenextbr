@@ -3,10 +3,10 @@ import { NextResponse } from "next/server";
 export const runtime = "edge";
 
 export function middleware(request) {
-    console.log("Geo detectado:", request.geo);
-    console.log("País detectado:", request.geo?.country);
-    
-    const country = request.geo?.country || "BR";
+    // A forma 100% confiável na Vercel:
+    const country = request.headers.get("x-vercel-ip-country") || "UNKNOWN";
+
+    console.log("Country header:", country);
 
     if (country === "BR") {
         return NextResponse.next();
