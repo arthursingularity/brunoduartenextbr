@@ -3,7 +3,9 @@ import { NextResponse } from "next/server";
 export const runtime = "edge";
 
 export function middleware(request) {
-
+    console.log("Geo detectado:", request.geo);
+    console.log("País detectado:", request.geo?.country);
+    
     const country = request.geo?.country || "BR";
 
     if (country === "BR") {
