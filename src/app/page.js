@@ -428,11 +428,6 @@ function Home() {
                                         <p className='leading-[20px]'>E-book completo de acordo com o seu objetivo</p>
                                     </div>
                                     <hr className='border-neutral-700' />
-                                    <div className='flex items-center space-x-2'>
-                                        <img className="w-[30px]" src="./imagens/check.png" />
-                                        <p className='leading-[20px]'>Acesso ao grupo VIP - Time Bruno Duarte</p>
-                                    </div>
-                                    <hr className='border-neutral-700' />
                                 </div>
                                 <p className="font-extralight text-[12.5px] text-neutral-100 pb-1">Em planos anual e semestral, o cancelamento antecipado está sujeito à taxa correspondente a uma mensalidade.</p>
                             </div>
@@ -481,11 +476,6 @@ function Home() {
                                     <div className='flex items-center space-x-2'>
                                         <img className="w-[30px]" src="./imagens/check.png" />
                                         <p className='leading-[20px]'>E-book completo de acordo com o seu objetivo</p>
-                                    </div>
-                                    <hr className='border-neutral-700' />
-                                    <div className='flex items-center space-x-2'>
-                                        <img className="w-[30px]" src="./imagens/close.png" />
-                                        <p className='leading-[20px]'>Acesso ao grupo VIP - Time Bruno Duarte</p>
                                     </div>
                                     <hr className='border-neutral-700' />
                                 </div>
@@ -538,10 +528,6 @@ function Home() {
                                         <p className='leading-[20px]'>E-book completo de acordo com o seu objetivo</p>
                                     </div>
                                     <hr className='border-neutral-700' />
-                                    <div className='flex items-center space-x-2'>
-                                        <img className="w-[30px]" src="./imagens/close.png" />
-                                        <p className='leading-[20px]'>Acesso ao grupo VIP - Time Bruno Duarte</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
