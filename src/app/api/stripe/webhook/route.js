@@ -2,8 +2,6 @@ import { headers } from "next/headers";
 import Stripe from "stripe";
 import crypto from "crypto";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 // Normaliza strings para o padrão do Meta
 function normalize(str = "") {
   return str.trim().toLowerCase();
@@ -15,6 +13,9 @@ function hashSHA256(data) {
 }
 
 export async function POST(req) {
+  // ❗ Inicializar Stripe dentro da função (evita erro no Vercel)
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
   const body = await req.text();
   const sig = headers().get("stripe-signature");
 
@@ -39,10 +40,9 @@ export async function POST(req) {
 
     const email = session.customer_details?.email || "";
     const amount = session.amount_total / 100;
-
     const plan = session.metadata?.plan || "Plano não informado";
 
-    // 👇 EVITAR DUPLICAÇÃO ENTRE CLIENT + SERVER
+    // 👇 Mesma lógica usada no Pixel para deduplicação
     const eventId = session.id;
 
     // Envia ao Meta CAPI
