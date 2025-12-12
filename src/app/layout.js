@@ -12,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
+
         <Script
           id="meta-pixel"
           strategy="afterInteractive"
@@ -30,6 +31,15 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${fbPixelId}&ev=PageView&noscript=1`}
+          />
+        </noscript>
       </body>
     </html>
   );
