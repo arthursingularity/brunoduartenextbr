@@ -1,7 +1,8 @@
 "use client";
 
+import { event } from "@/lib/metaPixel";
 import React from 'react'
-import { useState, useRef} from 'react';
+import { useState, useRef } from 'react';
 
 const slides = [
     { nome: 'foto1', img: '/imagens/foto1.jpeg' },
@@ -175,8 +176,8 @@ function Home() {
                             <button
                                 onClick={scrollToPlanos}
                                 className='buttonHover bg-verde p-3 w-[80%] max-w-[400px] rounded-[8px] text-black text-[18px] font-medium'
-                                >
-                                    Quero uma vaga
+                            >
+                                Quero uma vaga
                             </button>
                         </div>
                     </div>
@@ -393,7 +394,15 @@ function Home() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <button className='buttonHover font-medium bg-neutral-600 p-3 w-full rounded-[6px] text-[18px]'>Quero esse plano</button>
+                                            <button
+                                                onClick={() => {
+                                                    event("InitiateCheckout", { plan: "Anual" });
+                                                    window.open("https://buy.stripe.com/aFa00ifnF7dzda6bMEfQI0E", "_blank");
+                                                }}
+                                                className="buttonHover font-medium bg-neutral-600 p-3 w-full rounded-[6px] text-[18px]"
+                                            >
+                                                Quero esse plano
+                                            </button>
                                         </a>
                                     </div>
                                 </div>
@@ -443,7 +452,15 @@ function Home() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <button className='buttonHover font-medium bg-verde text-black p-3 w-full rounded-[6px] text-[18px]'>Quero esse plano</button>
+                                            <button
+                                                onClick={() => {
+                                                    event("InitiateCheckout", { plan: "Semestral" });
+                                                    window.open("https://buy.stripe.com/eVqbJ08Zh55r4DA180fQI0F", "_blank");
+                                                }}
+                                                className="buttonHover font-medium bg-verde text-black p-3 w-full rounded-[6px] text-[18px]"
+                                            >
+                                                Quero esse plano
+                                            </button>
                                         </a>
                                     </div>
                                 </div>
@@ -493,7 +510,15 @@ function Home() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <button className='buttonHover font-medium bg-verde text-black p-3 w-full rounded-[6px] text-[18px]'>Quero esse plano</button>
+                                            <button
+                                                onClick={() => {
+                                                    event("InitiateCheckout", { plan: "Trimestral" });
+                                                    window.open("https://buy.stripe.com/9B6eVc5N57dzgmicQIfQI0G", "_blank");
+                                                }}
+                                                className="buttonHover font-medium bg-verde text-black p-3 w-full rounded-[6px] text-[18px]"
+                                            >
+                                                Quero esse plano
+                                            </button>
                                         </a>
                                     </div>
                                 </div>
