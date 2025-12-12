@@ -624,7 +624,7 @@ function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <p className='text-[13px] buttonHover'>Desenvolvido por <span className='font-medium'>Arthur Alves</span></p>
+                        <p className='text-[13px] buttonHover'>Desenvolvido po <span className='font-medium'>Arthur Alves</span></p>
                     </a>
                 </div>
             </div>
