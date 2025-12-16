@@ -1,8 +1,7 @@
 "use client";
 
-import { event } from "@/lib/metaPixel";
 import React from 'react'
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const slides = [
     { nome: 'foto1', img: '/imagens/foto1.jpeg' },
@@ -39,12 +38,26 @@ const prints = [
     },
 ];
 
+export function trackEvent(name, params = {}) {
+    if (typeof window !== "undefined" && typeof window.fbq === "function") {
+        window.fbq("track", name, params);
+    }
+}
+
 function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentIndex2, setCurrentIndex2] = useState(0);
     const [currentVideo, setCurrentVideo] = useState(0);
     const touchStartX = useRef(null);
     const planosRef = useRef(null);
+
+    useEffect(() => {
+        trackEvent("ViewContent", {
+            content_name: "Consultoria Online Personal Trainer",
+            content_type: "product_group",
+            category: "fitness_online"
+        });
+    }, []);
 
     const scrollToPlanos = () => {
         planosRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -100,6 +113,12 @@ function Home() {
                     href="https://wa.me/553196450850?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20online."
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                        trackEvent("Contact", {
+                            content_name: "WhatsApp Consultoria Online",
+                            content_type: "contact"
+                        });
+                    }}
                 >
                     <div className='buttonHover bg-green-500 rounded-full p-1.5 fixed z-50 bottom-2 right-2'>
                         <img src='./imagens/whatsapp.svg' className='w-[40px]' />
@@ -127,7 +146,13 @@ function Home() {
 
                 <div className='text-center mt-4'>
                     <button
-                        onClick={scrollToPlanos}
+                        onClick={() => {
+                            trackEvent("Lead", {
+                                content_name: "CTA Principal",
+                                content_type: "primary_cta"
+                            });
+                            scrollToPlanos();
+                        }}
                         className='buttonHover bg-verde p-3 w-[80%] max-w-[400px] rounded-[8px] text-black text-[18px] font-medium'>Quero resultados reais</button>
                 </div>
 
@@ -174,7 +199,13 @@ function Home() {
                         </div>
                         <div className='text-center mt-8'>
                             <button
-                                onClick={scrollToPlanos}
+                                onClick={() => {
+                                    trackEvent("ScrollToPlans", {
+                                        content_name: "Quero uma vaga",
+                                        content_type: "engagement"
+                                      });
+                                    scrollToPlanos();
+                                }}
                                 className='buttonHover bg-verde p-3 w-[80%] max-w-[400px] rounded-[8px] text-black text-[18px] font-medium'
                             >
                                 Quero uma vaga
@@ -219,7 +250,13 @@ function Home() {
                             {/* Botão principal */}
                             <div className='text-center mt-4 pb-6'>
                                 <button
-                                    onClick={scrollToPlanos}
+                                    onClick={() => {
+                                        trackEvent("ScrollToPlans", {
+                                            content_name: "Resultados reais",
+                                            content_type: "engagement"
+                                          });
+                                        scrollToPlanos();
+                                    }}
                                     className='buttonHover bg-verde p-3 w-[80%] max-w-[400px] rounded-[8px] text-black text-[18px] font-medium'
                                 >
                                     Quero transformar o meu corpo
@@ -389,21 +426,21 @@ function Home() {
                                     </div>
                                     <p className='font-medium text-[27px] text-left ml-1'>R$97,70 <span className='text-[17px] font-regular'>/mês</span></p>
                                     <div className='text-center pt-3 text-white'>
-                                        <a
-                                            href="https://buy.stripe.com/aFa00ifnF7dzda6bMEfQI0E"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <button
+                                            onClick={() => {
+                                                trackEvent("InitiateCheckout", {
+                                                    content_name: "Plano Anual",
+                                                    content_type: "subscription",
+                                                    value: 97.7,
+                                                    currency: "BRL"
+                                                });
+
+                                                window.open("https://buy.stripe.com/aFa00ifnF7dzda6bMEfQI0E", "_blank");
+                                            }}
+                                            className="buttonHover font-medium bg-neutral-600 p-3 w-full rounded-[6px] text-[18px]"
                                         >
-                                            <button
-                                                onClick={() => {
-                                                    event("InitiateCheckout", { plan: "Anual" });
-                                                    window.open("https://buy.stripe.com/aFa00ifnF7dzda6bMEfQI0E", "_blank");
-                                                }}
-                                                className="buttonHover font-medium bg-neutral-600 p-3 w-full rounded-[6px] text-[18px]"
-                                            >
-                                                Quero esse plano
-                                            </button>
-                                        </a>
+                                            Quero esse plano
+                                        </button>
                                     </div>
                                 </div>
                                 <div className='space-y-2 p-3 text-neutral-200 text-left'>
@@ -447,21 +484,21 @@ function Home() {
                                     </div>
                                     <p className='font-medium text-[27px] text-left ml-1'>R$107,70 <span className='text-[17px] font-regular text-neutral-300'>/mês</span></p>
                                     <div className='text-center pt-3'>
-                                        <a
-                                            href="https://buy.stripe.com/eVqbJ08Zh55r4DA180fQI0F"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <button
+                                            onClick={() => {
+                                                trackEvent("InitiateCheckout", {
+                                                    content_name: "Plano Semestral",
+                                                    content_type: "subscription",
+                                                    value: 107.7,
+                                                    currency: "BRL"
+                                                });
+
+                                                window.open("https://buy.stripe.com/eVqbJ08Zh55r4DA180fQI0F", "_blank");
+                                            }}
+                                            className="buttonHover font-medium bg-verde text-black p-3 w-full rounded-[6px] text-[18px]"
                                         >
-                                            <button
-                                                onClick={() => {
-                                                    event("InitiateCheckout", { plan: "Semestral" });
-                                                    window.open("https://buy.stripe.com/eVqbJ08Zh55r4DA180fQI0F", "_blank");
-                                                }}
-                                                className="buttonHover font-medium bg-verde text-black p-3 w-full rounded-[6px] text-[18px]"
-                                            >
-                                                Quero esse plano
-                                            </button>
-                                        </a>
+                                            Quero esse plano
+                                        </button>
                                     </div>
                                 </div>
                                 <div className='space-y-2 p-3 text-neutral-200 text-left'>
@@ -505,21 +542,21 @@ function Home() {
                                     </div>
                                     <p className='font-medium text-[27px] text-left ml-1'>R$127,70 <span className='text-[17px] font-regular text-neutral-300'>/mês</span></p>
                                     <div className='text-center pt-3'>
-                                        <a
-                                            href="https://buy.stripe.com/9B6eVc5N57dzgmicQIfQI0G"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <button
+                                            onClick={() => {
+                                                trackEvent("InitiateCheckout", {
+                                                    content_name: "Plano Trimestral",
+                                                    content_type: "subscription",
+                                                    value: 127.7,
+                                                    currency: "BRL"
+                                                });
+
+                                                window.open("https://buy.stripe.com/9B6eVc5N57dzgmicQIfQI0G", "_blank");
+                                            }}
+                                            className="buttonHover font-medium bg-verde text-black p-3 w-full rounded-[6px] text-[18px]"
                                         >
-                                            <button
-                                                onClick={() => {
-                                                    event("InitiateCheckout", { plan: "Trimestral" });
-                                                    window.open("https://buy.stripe.com/9B6eVc5N57dzgmicQIfQI0G", "_blank");
-                                                }}
-                                                className="buttonHover font-medium bg-verde text-black p-3 w-full rounded-[6px] text-[18px]"
-                                            >
-                                                Quero esse plano
-                                            </button>
-                                        </a>
+                                            Quero esse plano
+                                        </button>
                                     </div>
                                 </div>
                                 <div className='space-y-2 p-3 text-neutral-200 text-left'>
@@ -606,7 +643,13 @@ function Home() {
                         </div>
                         <div className='text-center mt-6'>
                             <button
-                                onClick={scrollToPlanos}
+                                onClick={() => {
+                                    trackEvent("ScrollToPlans", {
+                                        content_name: "Quero mudar de vida",
+                                        content_type: "engagement"
+                                    });
+                                    scrollToPlanos();
+                                }}
                                 className='buttonHover bg-verde p-4 w-full rounded-[8px] max-w-[400px] text-black text-[20px] font-psemibold'
                             >Quero mudar de vida
                             </button>

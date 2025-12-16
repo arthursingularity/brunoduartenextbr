@@ -79,15 +79,18 @@ async function sendPurchaseToMeta({ amount, email, plan, eventId }) {
         event_time: Math.floor(Date.now() / 1000),
         event_id: eventId,
         action_source: "website",
-        event_source_url: "https://www.brunoduartepersonal.com.br",
+        event_source_url: "https://www.brunoduartepersonal.com.br/checkout",
         user_data: {
           em: hashedEmail,
+          fn: hashSHA256(normalize(session.customer_details?.name?.split(" ")[0])),
+          ln: hashSHA256(normalize(session.customer_details?.name?.split(" ").slice(1).join(" "))),
         },
         custom_data: {
           currency: "BRL",
           value: amount,
-          plan,
-        },
+          content_type: "product",
+          content_name: plan,
+        }
       },
     ],
     ...(process.env.FACEBOOK_TEST_CODE

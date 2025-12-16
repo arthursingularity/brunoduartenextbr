@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body>
         {children}
 
@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
               'https://connect.facebook.net/en_US/fbevents.js');
               fbq('init', '${fbPixelId}');
               fbq('track', 'PageView');
+              fbq("track", "ViewContent");
             `,
           }}
         />
