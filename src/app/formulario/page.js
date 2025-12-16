@@ -1,12 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { trackEvent } from "@/lib/metaPixel";
+import { useState, useEffect } from "react";
 import emailjs from '@emailjs/browser';
 emailjs.init("NrYw_EiFWBGHgsaVH");
 
 function Formulario() {
     const [step, setStep] = useState(1); // etapa atual
     const totalSteps = 4;
+
+    useEffect(() => {
+        trackEvent("CompleteRegistration", {
+            content_name: "Início da Anamnese",
+            content_type: "post_purchase"
+        });
+    }, []);
 
     // Inputs separados por etapa
     const steps = [
@@ -80,11 +88,22 @@ function Formulario() {
         }
 
         if (step < totalSteps) {
+            trackEvent("anamnese_step", {
+                step: step,
+                content_name: `Etapa ${step} concluída`,
+                content_type: "form_progress"
+            });
+
             setStep(step + 1);
         }
     };
 
     const handlePrev = () => {
+        trackEvent("anamnese_back", {
+            step: step,
+            content_type: "navigation"
+        });
+
         if (step > 1) setStep(step - 1);
     };
 
@@ -97,6 +116,11 @@ function Formulario() {
             alert("Por favor, preencha todos os campos antes de enviar o formulário.");
             return;
         }
+
+        trackEvent("AnamneseComplete", {
+            content_name: "Anamnese Finalizada",
+            content_type: "form_complete"
+        });
 
         const nomeCompleto = answers["Nome completo"] || "Sem nome";
         const message = Object.entries(answers)
