@@ -11,3 +11,9 @@ export const event = (name, options = {}) => {
     window.fbq("track", name, options);
   }
 };
+
+export function trackEvent(eventName, params = {}) {
+  if (typeof window !== "undefined" && window.fbq) {
+    window.fbq("track", eventName, params);
+  }
+}
