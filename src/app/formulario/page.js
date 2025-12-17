@@ -228,6 +228,7 @@ function Formulario() {
             subject: `Consultoria Online - Anamnese de ${nomeCompleto}`,
             message,
             name: nomeCompleto,
+            email: answers["Email"], // 👈 ESSENCIAL
         };
 
         emailjs
@@ -279,11 +280,11 @@ function Formulario() {
                 <p className="text-center text-bgreen text-[36px] font-medium">
                     Anamnese
                 </p>
+                <p></p>
                 <hr className="border-1 border-neutral-500 mt-8" />
                 <p className="text-center mt-5">
                     Responda ao questionário para que possamos obter melhores resultados.
                 </p>
-
                 <div className="w-full bg-gray-700 h-2 rounded mt-8">
                     <div
                         className="bg-bgreen h-2 rounded transition-all duration-500"
