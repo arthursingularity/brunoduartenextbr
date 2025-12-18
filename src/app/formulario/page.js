@@ -12,12 +12,18 @@ function Formulario() {
 
     useEffect(() => {
         emailjs.init("NrYw_EiFWBGHgsaVH");
-
-        trackEvent("CompleteRegistration", {
+      
+        const alreadyTracked = sessionStorage.getItem("anamnese_started");
+      
+        if (!alreadyTracked) {
+          trackEvent("CompleteRegistration", {
             content_name: "Início da Anamnese",
             content_type: "post_purchase",
-        });
-    }, []);
+          });
+      
+          sessionStorage.setItem("anamnese_started", "true");
+        }
+      }, []);
 
     const baseInputClass =
         "bg-transparent border rounded h-[43px] pl-2 pr-8 outline-none text-white appearance-none cursor-pointer " +
@@ -244,11 +250,12 @@ function Formulario() {
         emailjs
             .send("service_6oz7wms", "template_pqmznwk", templateParams)
             .then(() => {
+                sessionStorage.removeItem("anamnese_started");
                 alert("Formulário enviado com sucesso! 🎉");
                 setAnswers({});
                 setStep(1);
                 setSending(false);
-            })
+              })
             .catch((err) => {
                 console.error("EmailJS ERROR:", err);
                 alert(err.text || err.message);
