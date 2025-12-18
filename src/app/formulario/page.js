@@ -195,42 +195,44 @@ function Formulario() {
     };
 
     const handleSubmit = () => {
+        if (step !== totalSteps) return;
+
         if (sending) return;
-    
+
         setSending(true);
         setError("");
-    
+
         const allFields = steps.flat();
         const hasEmptyField = allFields.some(
             (label) => !answers[label] || answers[label].trim() === ""
         );
-    
+
         if (!isValidEmail(answers["Email"])) {
             setError("Digite um e-mail válido.");
             setSending(false);
             return;
         }
-    
+
         if (hasEmptyField) {
             setError("Por favor, preencha todos os campos antes de enviar o formulário.");
             setSending(false);
             return;
         }
-    
+
         trackEvent("AnamneseComplete", {
             content_name: "Anamnese Finalizada",
             content_type: "form_complete",
         });
-    
+
         const nomeCompleto = answers["Nome completo"] || "Sem nome";
-    
+
         const message = Object.entries(answers)
             .map(
                 ([pergunta, resposta]) =>
                     `<b>${pergunta}:</b> ${resposta}<br><br>`
             )
             .join("");
-    
+
         const templateParams = {
             to_email: "brunoassispersonal@gmail.com",
             subject: `Consultoria Online - Anamnese de ${nomeCompleto}`,
@@ -238,7 +240,7 @@ function Formulario() {
             name: nomeCompleto,
             email: answers["Email"],
         };
-    
+
         emailjs
             .send("service_6oz7wms", "template_pqmznwk", templateParams)
             .then(() => {
@@ -253,7 +255,7 @@ function Formulario() {
                 setSending(false);
             });
     };
-    
+
 
     const progressWidth = `${(step / totalSteps) * 100}%`;
 
@@ -305,10 +307,7 @@ function Formulario() {
                 <div className="flex justify-center mt-10">
                     <form
                         className="w-full"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            if (step === totalSteps) handleSubmit();
-                        }}
+                        onSubmit={(e) => e.preventDefault()}
                     >
                         <div className="space-y-4">
                             {steps[step - 1].map((label, index) => (
@@ -455,9 +454,9 @@ function Formulario() {
                             )}
 
                             <button
+                                type="button"
                                 disabled={sending}
-                                type={step === totalSteps ? "submit" : "button"}
-                                onClick={step === totalSteps ? undefined : handleNext}
+                                onClick={step === totalSteps ? handleSubmit : handleNext}
                                 className="buttonHover px-6 py-2 rounded text-black text-[18px] font-medium bg-verde"
                             >
                                 {sending ? "Enviando..." : step === totalSteps ? "Finalizar" : "Próximo"}
