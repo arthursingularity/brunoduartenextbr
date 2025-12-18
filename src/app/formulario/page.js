@@ -243,9 +243,9 @@ function Formulario() {
                 setStep(1);
             })
             .catch((err) => {
-                console.error(err);
-                alert("Ocorreu um erro ao enviar.");
-            });
+                console.error("EmailJS PROD ERROR:", err);
+                alert(err.text || err.message || "Erro desconhecido");
+              });
     };
 
     const progressWidth = `${(step / totalSteps) * 100}%`;
