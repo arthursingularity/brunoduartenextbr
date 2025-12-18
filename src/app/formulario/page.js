@@ -8,6 +8,7 @@ function Formulario() {
     const [step, setStep] = useState(1);
     const [error, setError] = useState("");
     const totalSteps = 4;
+    const [sending, setSending] = useState(false);
 
     useEffect(() => {
         emailjs.init("NrYw_EiFWBGHgsaVH");
@@ -194,6 +195,8 @@ function Formulario() {
     };
 
     const handleSubmit = () => {
+        if (sending) return;
+        setSending(true);
         const allFields = steps.flat();
         const hasEmptyField = allFields.some(
             (label) => !answers[label] || answers[label].trim() === ""
@@ -241,10 +244,12 @@ function Formulario() {
                 alert("Formulário enviado com sucesso! 🎉");
                 setAnswers({});
                 setStep(1);
+                setSending(false);
             })
             .catch((err) => {
-                console.error(err);
-                alert("Ocorreu um erro ao enviar.");
+                console.error("EmailJS ERROR:", err);
+                alert(err.text || err.message);
+                setSending(false);
             });
     };
 
@@ -296,7 +301,13 @@ function Formulario() {
                 </p>
 
                 <div className="flex justify-center mt-10">
-                    <form className="w-full">
+                    <form
+                        className="w-full"
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            if (step === totalSteps) handleSubmit();
+                        }}
+                    >
                         <div className="space-y-4">
                             {steps[step - 1].map((label, index) => (
                                 <div key={index} className="flex flex-col space-y-1 relative">
@@ -442,12 +453,8 @@ function Formulario() {
                             )}
 
                             <button
-                                type="button"
-                                onClick={
-                                    step === totalSteps
-                                        ? handleSubmit
-                                        : handleNext
-                                }
+                                type={step === totalSteps ? "submit" : "button"}
+                                onClick={step === totalSteps ? undefined : handleNext}
                                 className="buttonHover px-6 py-2 rounded text-black text-[18px] font-medium bg-verde"
                             >
                                 {step === totalSteps ? "Finalizar" : "Próximo"}
