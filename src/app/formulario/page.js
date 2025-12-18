@@ -196,50 +196,51 @@ function Formulario() {
 
     const handleSubmit = () => {
         if (sending) return;
+    
         setSending(true);
+        setError("");
+    
         const allFields = steps.flat();
         const hasEmptyField = allFields.some(
             (label) => !answers[label] || answers[label].trim() === ""
         );
-
+    
         if (!isValidEmail(answers["Email"])) {
             setError("Digite um e-mail válido.");
+            setSending(false);
             return;
         }
-
+    
         if (hasEmptyField) {
             setError("Por favor, preencha todos os campos antes de enviar o formulário.");
+            setSending(false);
             return;
         }
-
+    
         trackEvent("AnamneseComplete", {
             content_name: "Anamnese Finalizada",
             content_type: "form_complete",
         });
-
+    
         const nomeCompleto = answers["Nome completo"] || "Sem nome";
-
+    
         const message = Object.entries(answers)
             .map(
                 ([pergunta, resposta]) =>
                     `<b>${pergunta}:</b> ${resposta}<br><br>`
             )
             .join("");
-
+    
         const templateParams = {
             to_email: "brunoassispersonal@gmail.com",
             subject: `Consultoria Online - Anamnese de ${nomeCompleto}`,
             message,
             name: nomeCompleto,
-            email: answers["Email"], // 👈 ESSENCIAL
+            email: answers["Email"],
         };
-
+    
         emailjs
-            .send(
-                "service_6oz7wms",
-                "template_pqmznwk",
-                templateParams
-            )
+            .send("service_6oz7wms", "template_pqmznwk", templateParams)
             .then(() => {
                 alert("Formulário enviado com sucesso! 🎉");
                 setAnswers({});
@@ -252,6 +253,7 @@ function Formulario() {
                 setSending(false);
             });
     };
+    
 
     const progressWidth = `${(step / totalSteps) * 100}%`;
 
@@ -453,11 +455,12 @@ function Formulario() {
                             )}
 
                             <button
+                                disabled={sending}
                                 type={step === totalSteps ? "submit" : "button"}
                                 onClick={step === totalSteps ? undefined : handleNext}
                                 className="buttonHover px-6 py-2 rounded text-black text-[18px] font-medium bg-verde"
                             >
-                                {step === totalSteps ? "Finalizar" : "Próximo"}
+                                {sending ? "Enviando..." : step === totalSteps ? "Finalizar" : "Próximo"}
                             </button>
                         </div>
                     </form>
