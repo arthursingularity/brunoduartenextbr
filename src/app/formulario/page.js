@@ -10,7 +10,7 @@ function Formulario() {
     const totalSteps = 4;
 
     useEffect(() => {
-        emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+        emailjs.init("NrYw_EiFWBGHgsaVH");
 
         trackEvent("CompleteRegistration", {
             content_name: "Início da Anamnese",
@@ -233,8 +233,8 @@ function Formulario() {
 
         emailjs
             .send(
-                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+                "service_6oz7wms",
+                "template_pqmznwk",
                 templateParams
             )
             .then(() => {
@@ -243,9 +243,9 @@ function Formulario() {
                 setStep(1);
             })
             .catch((err) => {
-                console.error("EmailJS PROD ERROR:", err);
-                alert(err.text || err.message || "Erro desconhecido");
-              });
+                console.error(err);
+                alert("Ocorreu um erro ao enviar.");
+            });
     };
 
     const progressWidth = `${(step / totalSteps) * 100}%`;
