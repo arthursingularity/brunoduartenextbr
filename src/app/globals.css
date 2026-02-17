@@ -54,13 +54,479 @@
   --color-verde: #4ce560;
 }
 
+html,
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(17, 17, 17);
+  overflow-x: hidden;
+}
+
+body {
+  background-color: rgb(10, 10, 10);
 }
 
 .buttonHover:hover {
   filter: brightness(80%);
   cursor: pointer;
+}
+
+/* ═══════════════════════════════════════ */
+/* PREMIUM ANIMATIONS                     */
+/* ═══════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(170, 255, 0, 0.3), 0 0 40px rgba(170, 255, 0, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(170, 255, 0, 0.5), 0 0 60px rgba(170, 255, 0, 0.2);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes countPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════ */
+/* CTA BUTTON PREMIUM                     */
+/* ═══════════════════════════════════════ */
+
+.cta-button {
+  position: relative;
+  background: linear-gradient(135deg, #aaff00, #88dd00);
+  color: #000;
+  font-family: "Poppins SemiBold";
+  font-size: 16px;
+  padding: 16px 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+  overflow: hidden;
+  width: 85%;
+  max-width: 420px;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(170, 255, 0, 0.4);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+.cta-button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════ */
+/* SECTION SEPARATOR                      */
+/* ═══════════════════════════════════════ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(170, 255, 0, 0.3), transparent);
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* ═══════════════════════════════════════ */
+/* GLASSMORPHISM CARDS                    */
+/* ═══════════════════════════════════════ */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(170, 255, 0, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+}
+
+/* ═══════════════════════════════════════ */
+/* HIGHLIGHT TAG                          */
+/* ═══════════════════════════════════════ */
+
+.highlight-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-family: "Poppins SemiBold";
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════ */
+/* PLAN CARDS                             */
+/* ═══════════════════════════════════════ */
+
+.plan-card {
+  background: rgba(25, 25, 25, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.plan-card:hover {
+  border-color: rgba(170, 255, 0, 0.15);
+  transform: translateY(-6px);
+}
+
+.plan-card-featured {
+  border: 2px solid rgba(170, 255, 0, 0.4) !important;
+  box-shadow: 0 0 40px rgba(170, 255, 0, 0.08);
+}
+
+.plan-card-featured:hover {
+  box-shadow: 0 0 50px rgba(170, 255, 0, 0.15);
+}
+
+/* ═══════════════════════════════════════ */
+/* STEP CIRCLE                            */
+/* ═══════════════════════════════════════ */
+
+.step-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #aaff00, #88cc00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins Bold";
+  font-size: 20px;
+  color: #000;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════ */
+/* URGENCY SECTION                        */
+/* ═══════════════════════════════════════ */
+
+.urgency-section {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  position: relative;
+  overflow: hidden;
+}
+
+.urgency-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg,
+      transparent,
+      transparent 20px,
+      rgba(0, 0, 0, 0.05) 20px,
+      rgba(0, 0, 0, 0.05) 40px);
+}
+
+/* ═══════════════════════════════════════ */
+/* SCROLL ANIMATIONS (IntersectionObserver) */
+/* ═══════════════════════════════════════ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ═══════════════════════════════════════ */
+/* HERO GRADIENT OVERLAY                  */
+/* ═══════════════════════════════════════ */
+
+.hero-gradient {
+  background: linear-gradient(180deg,
+      rgba(10, 10, 10, 0) 0%,
+      rgba(10, 10, 10, 0.3) 40%,
+      rgba(10, 10, 10, 0.9) 85%,
+      rgba(10, 10, 10, 1) 100%);
+}
+
+/* ═══════════════════════════════════════ */
+/* GREEN GLOW TEXT                        */
+/* ═══════════════════════════════════════ */
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(170, 255, 0, 0.3), 0 0 40px rgba(170, 255, 0, 0.1);
+}
+
+/* ═══════════════════════════════════════ */
+/* STATS COUNTER SECTION                  */
+/* ═══════════════════════════════════════ */
+
+.stat-number {
+  font-family: "Poppins Bold";
+  font-size: 33px;
+  color: #aaff00;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: "Poppins Light";
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ═══════════════════════════════════════ */
+/* SCROLLBAR CUSTOM                       */
+/* ═══════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 10, 1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(170, 255, 0, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(170, 255, 0, 0.4);
+}
+
+/* ═══════════════════════════════════════ */
+/* FAQ ACCORDION                          */
+/* ═══════════════════════════════════════ */
+
+.faq-item {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: rgba(25, 25, 25, 0.6);
+}
+
+.faq-item:hover {
+  border-color: rgba(170, 255, 0, 0.15);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 18px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Poppins Medium";
+  font-size: 15px;
+  color: #fff;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.faq-question:hover {
+  color: #aaff00;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Poppins Light";
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.faq-answer.open {
+  max-height: 300px;
+  padding: 0 20px 18px;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+  color: #aaff00;
+  font-size: 20px;
+}
+
+.faq-icon.open {
+  transform: rotate(45deg);
 }
