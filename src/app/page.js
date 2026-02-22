@@ -1003,7 +1003,7 @@ function Home() {
                             />
                             <FAQItem
                                 question="Preciso seguir uma dieta restritiva?"
-                                answer="De jeito nenhum. Eu trabalho com orientação alimentar prática e flexível, baseada nas suas preferências. Nada de cortar tudo, passar fome ou viver de frango e batata doce. O objetivo é criar hábitos que você consiga manter para a vida toda."
+                                answer="Não necessariamente. Dietas muito restritivas costumam ser difíceis de manter a longo prazo e, por isso, raramente geram resultados duradouros. O mais importante é construir uma alimentação equilibrada, adequada à sua rotina e às suas preferências, promovendo hábitos consistentes que possam ser mantidos de forma natural no dia a dia."
                             />
                             <FAQItem
                                 question="Como é feito o acompanhamento?"
@@ -1060,16 +1060,16 @@ function Home() {
                 {/* ═══════════════════════════════════════ */}
                 <footer className='text-center text-white mt-10 px-6 bg-[rgb(8,8,8)] space-y-4'>
                     <div className='flex justify-center'>
-                        <img src='./imagens/logo.png' className='w-[90px] opacity-60' alt="Logo" />
+                        <img src='./imagens/logo.png' className='w-[90px]' alt="Logo" />
                     </div>
-                    <p className='text-[13px] text-neutral-500 mt-4 font-extralight'>© Bruno Duarte 2025 - Todos os direitos reservados.</p>
+                    <p className='text-[13px] mt-4 font-extralight'>© Bruno Duarte 2025 - Todos os direitos reservados.</p>
                     <div className='section-divider'></div>
                     <a
                         href="https://wa.me/5522999197523"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <p className='text-[12px] mt-6 pb-6 text-neutral-600 buttonHover'>Desenvolvido por <span className='font-medium text-neutral-500'>Arthur Alves</span></p>
+                        <p className='text-[12px] mt-6 pb-6 buttonHover'>Desenvolvido por <span className='font-medium text-neutral-500'>Arthur Alves</span></p>
                     </a>
                 </footer>
             </main>
