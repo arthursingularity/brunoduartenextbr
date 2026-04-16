@@ -2,27 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { trackEvent } from '../utils/analytics';
 
 const slides = [
-    { nome: 'foto1', img: '/imagens/foto1.jpeg' },
-    { nome: 'foto2', img: '/imagens/foto2.jpeg' },
-    { nome: 'foto3', img: '/imagens/foto3.jpg' },
-    { nome: 'foto4', img: '/imagens/foto4.jpg' },
-    { nome: 'foto5', img: '/imagens/foto5.jpg' },
-    { nome: 'foto6', img: '/imagens/foto6.jpg' },
-    { nome: 'foto7', img: '/imagens/foto7.jpg' },
-    { nome: 'foto8', img: '/imagens/foto8.jpg' },
-    { nome: 'foto9', img: '/imagens/foto9.jpg' },
+    { nome: 'foto1', img: '/slide/1.jpg' },
+    { nome: 'foto2', img: '/slide/2.jpg' },
+    { nome: 'foto3', img: '/slide/3.jpg' },
+    { nome: 'foto4', img: '/slide/4.jpg' },
+    { nome: 'foto5', img: '/slide/5.jpg' },
+    { nome: 'foto6', img: '/slide/6.jpg' },
+    { nome: 'foto7', img: '/slide/7.jpg' },
+    { nome: 'foto8', img: '/slide/8.jpg' },
 ];
 
 export function BeforeAfter({ scrollToPlanos }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-
-    // Auto-slide for before/after photos
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % slides.length);
-        }, 4000);
-        return () => clearInterval(interval);
-    }, []);
 
     const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % slides.length);
     const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
@@ -33,10 +24,10 @@ export function BeforeAfter({ scrollToPlanos }) {
         <section className='px-4 py-10' aria-label="Resultados de alunas">
             <div className="reveal-scale max-w-[650px] mx-auto">
                 <div className='text-center mb-6'>
-                    <span className='highlight-tag bg-bgreen/10 text-bgreen border border-bgreen/20'>
+                    <span className='inline-block px-[14px] py-[4px] rounded-[20px] text-[12px] font-psemibold tracking-[1.5px] uppercase bg-bgreen/10 text-bgreen border border-bgreen/20'>
                         Prova real
                     </span>
-                    <h2 className='text-[28px] sm:text-[34px] font-psemibold mt-4 text-white leading-[34px]'>
+                    <h2 className='text-[24px] sm:text-[34px] font-psemibold mt-4 text-white leading-[34px]'>
                         Resultados que <span className='text-bgreen text-glow'>falam por si</span>
                     </h2>
                     <p className='text-neutral-400 mt-2 text-[15px]'>
@@ -44,16 +35,16 @@ export function BeforeAfter({ scrollToPlanos }) {
                     </p>
                 </div>
 
-                <div className="glass-card p-4 sm:p-6">
-                    <div className="relative flex items-center justify-center">
+                <div className="glass-card p-4 sm:p-6 relative">
+                    <div className="flex items-center justify-center">
                         <button
                             onClick={prevSlide}
-                            className="absolute left-1 z-20 bg-neutral-700/70 backdrop-blur-sm buttonHover text-white rounded-full p-1.5"
+                            className="absolute left-1 z-20 bg-neutral-700/70 backdrop-blur-sm hover:brightness-75 transition-all cursor-pointer text-white rounded-full p-1.5"
                         >
                             <img className="w-[22px]" src="./imagens/setaesq.png" alt="Anterior" />
                         </button>
 
-                        <div className="w-[90%] max-w-[500px] h-auto relative overflow-hidden rounded-xl">
+                        <div className="max-w-[450px] aspect-[5/5] relative overflow-hidden rounded-xl bg-neutral-800">
                             <img
                                 src={current.img}
                                 alt={`Resultado ${current.nome}`}
@@ -63,7 +54,7 @@ export function BeforeAfter({ scrollToPlanos }) {
 
                         <button
                             onClick={nextSlide}
-                            className="absolute right-1 z-20 bg-neutral-700/70 backdrop-blur-sm buttonHover text-white rounded-full p-1.5"
+                            className="absolute right-1 z-20 bg-neutral-700/70 backdrop-blur-sm hover:brightness-75 transition-all cursor-pointer text-white rounded-full p-1.5"
                         >
                             <img className="w-[22px]" src="./imagens/setadir.png" alt="Próximo" />
                         </button>
@@ -135,13 +126,13 @@ export function SocialProof() {
                             <div className='relative w-full max-h-[380px] xl:max-h-[580px] bg-neutral-700 overflow-hidden flex justify-center items-center'>
                                 <span
                                     onClick={prevSlide2}
-                                    className='z-20 left-1 bg-neutral-600/80 backdrop-blur-sm rounded-full p-[4px] absolute cursor-pointer buttonHover'
+                                    className='z-20 left-1 bg-neutral-600/80 backdrop-blur-sm rounded-full p-[4px] absolute hover:brightness-75 transition-all cursor-pointer'
                                 >
                                     <img className="w-[22px]" src="./imagens/setaesq.png" alt="" />
                                 </span>
                                 <span
                                     onClick={nextSlide2}
-                                    className='z-20 right-1 bg-neutral-600/80 backdrop-blur-sm rounded-full p-[4px] absolute cursor-pointer buttonHover'
+                                    className='z-20 right-1 bg-neutral-600/80 backdrop-blur-sm rounded-full p-[4px] absolute hover:brightness-75 transition-all cursor-pointer'
                                 >
                                     <img className="w-[22px]" src="./imagens/setadir.png" alt="" />
                                 </span>

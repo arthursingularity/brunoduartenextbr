@@ -5,7 +5,7 @@ export function About() {
         <section className='px-4 py-14 text-white' aria-label="Sobre Bruno Duarte" itemScope itemType="https://schema.org/Person">
             <div className='max-w-[900px] mx-auto'>
                 <div className='reveal text-center mb-8'>
-                    <span className='highlight-tag bg-bgreen/10 text-bgreen border border-bgreen/20'>
+                    <span className='inline-block px-[14px] py-[4px] rounded-[20px] text-[12px] font-psemibold tracking-[1.5px] uppercase bg-bgreen/10 text-bgreen border border-bgreen/20'>
                         Quem vai te guiar
                     </span>
                 </div>
@@ -35,14 +35,14 @@ export function About() {
                         </div>
                         <div className='flex gap-3 mt-6'>
                             <a href="https://www.instagram.com/brunoduartepersonal" target="_blank" rel="noopener noreferrer">
-                                <img src="./imagens/instagram.png" className="buttonHover w-[40px]" alt="Instagram" />
+                                <img src="./imagens/instagram.png" className="hover:brightness-75 transition-all cursor-pointer w-[40px]" alt="Instagram" />
                             </a>
                             <a
                                 href="https://wa.me/553196450850?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20online."
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src="./imagens/whatsapp.png" className="buttonHover w-[40px]" alt="WhatsApp" />
+                                <img src="./imagens/whatsapp.png" className="hover:brightness-75 transition-all cursor-pointer w-[40px]" alt="WhatsApp" />
                             </a>
                         </div>
                     </div>
@@ -55,18 +55,18 @@ export function About() {
 function FAQItem({ question, answer }) {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className="faq-item" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+        <div className="faq-item border border-white/5 rounded-[14px] overflow-hidden transition-all duration-300 ease bg-[#19191999] hover:border-bgreen/15" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <button
-                className="faq-question"
+                className="faq-question w-full px-5 py-[18px] cursor-pointer flex justify-between items-center font-medium text-[15px] text-white transition-all duration-300 ease bg-transparent border-none text-left leading-[1.4] hover:text-bgreen"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-expanded={isOpen}
                 type="button"
             >
                 <span itemProp="name">{question}</span>
-                <span className={`faq-icon ${isOpen ? 'open' : ''}`} aria-hidden="true">+</span>
+                <span className={`faq-icon transition-transform duration-300 ease text-bgreen text-[20px] ${isOpen ? 'open' : ''}`} aria-hidden="true">+</span>
             </button>
             <div
-                className={`faq-answer ${isOpen ? 'open' : ''}`}
+                className={`faq-answer px-5 text-white/70 font-light text-[14px] leading-[1.7] ${isOpen ? 'open' : ''}`}
                 itemScope
                 itemProp="acceptedAnswer"
                 itemType="https://schema.org/Answer"
@@ -131,7 +131,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <p className='text-[12px] mt-6 pb-6 buttonHover'>Desenvolvido por <span className='font-medium text-neutral-500'>Arthur Alves</span></p>
+                <p className='text-[12px] mt-6 pb-6 hover:brightness-75 transition-all cursor-pointer'>Desenvolvido por <span className='font-medium text-neutral-500'>Arthur Alves</span></p>
             </a>
         </footer>
     );

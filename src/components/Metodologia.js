@@ -5,7 +5,7 @@ export function Deliverables() {
         <section className='px-4 py-10 text-white' aria-label="O que está incluído na consultoria">
             <div className='max-w-[650px] mx-auto'>
                 <div className='reveal text-center'>
-                    <span className='highlight-tag bg-bgreen/10 text-bgreen border border-bgreen/20'>
+                    <span className='inline-block px-[14px] py-[4px] rounded-[20px] text-[12px] font-psemibold tracking-[1.5px] uppercase bg-bgreen/10 text-bgreen border border-bgreen/20'>
                         Método exclusivo
                     </span>
                     <h2 className='text-[28px] sm:text-[34px] font-psemibold mt-4 leading-[34px]'>
@@ -137,7 +137,7 @@ export function HowItWorks() {
         <section className='px-4 py-10 text-white' aria-label="Como funciona o processo">
             <div className='max-w-[600px] mx-auto'>
                 <div className='reveal text-center'>
-                    <span className='highlight-tag bg-bgreen/10 text-bgreen border border-bgreen/20'>
+                    <span className='inline-block px-[14px] py-[4px] rounded-[20px] text-[12px] font-psemibold tracking-[1.5px] uppercase bg-bgreen/10 text-bgreen border border-bgreen/20'>
                         Simples e direto
                     </span>
                     <h2 className='text-[28px] sm:text-[34px] font-psemibold mt-4'>

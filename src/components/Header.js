@@ -14,7 +14,7 @@ export function WhatsAppFloat() {
                 });
             }}
         >
-            <div className='buttonHover bg-green-500 rounded-full p-2 fixed z-50 bottom-4 right-4 shadow-lg shadow-green-500/20'>
+            <div className='hover:brightness-75 transition-all cursor-pointer bg-green-500 rounded-full p-2 fixed z-50 bottom-4 right-4 shadow-lg shadow-green-500/20'>
                 <img src='./imagens/whatsapp.svg' className='w-[42px]' alt="WhatsApp" />
             </div>
         </a>
@@ -31,7 +31,7 @@ export function Hero({ scrollToPlanos }) {
                     </div>
 
                     <div className='mt-5 animate-fadeInUp' style={{ animationDelay: '0.2s' }}>
-                        <span className='highlight-tag bg-bgreen/10 text-bgreen border border-bgreen/20'>
+                        <span className='inline-block px-[14px] py-[4px] rounded-[20px] text-[12px] font-psemibold tracking-[1.5px] uppercase bg-bgreen/10 text-bgreen border border-bgreen/20'>
                             +300 mulheres transformadas
                         </span>
                     </div>
@@ -55,7 +55,7 @@ export function Hero({ scrollToPlanos }) {
                     </p>
                 </div>
 
-                <div className='text-center mt-4 pb-8 animate-fadeInUp' style={{ animationDelay: '1.1s' }}>
+                <div className='text-center mt-4 pb-8 px-5 animate-fadeInUp' style={{ animationDelay: '1.1s' }}>
                     <button
                         onClick={() => {
                             trackEvent("Lead", {
@@ -78,20 +78,20 @@ export function Stats() {
     return (
         <section className='py-10 px-4' aria-label="Números e estatísticas">
             <div className='section-divider'></div>
-            <div className='reveal flex justify-center mb-10 mt-10 gap-6 sm:gap-12 max-w-[600px] mx-auto'>
-                <div className='text-center'>
-                    <p className='stat-number'>15+</p>
-                    <p className='stat-label'>Anos de<br />experiência</p>
+            <div className='reveal flex justify-between items-center mb-10 mt-10 gap-1 sm:gap-12 max-w-[600px] mx-auto w-full px-2 sm:px-0'>
+                <div className='text-center flex-1'>
+                    <p className='font-bold text-[25px] sm:text-[33px] text-bgreen leading-none'>15+</p>
+                    <p className='font-light text-[10px] sm:text-[13px] text-white/60 mt-1 uppercase tracking-[0.5px] sm:tracking-[1px]'>Anos de<br />experiência</p>
                 </div>
-                <div className='w-[1px] bg-neutral-800'></div>
-                <div className='text-center'>
-                    <p className='stat-number'>300+</p>
-                    <p className='stat-label'>Alunas<br />transformadas</p>
+                <div className='w-[1px] h-10 sm:h-12 bg-neutral-800 shrink-0'></div>
+                <div className='text-center flex-1'>
+                    <p className='font-bold text-[25px] sm:text-[33px] text-bgreen leading-none'>300+</p>
+                    <p className='font-light text-[10px] sm:text-[13px] text-white/60 mt-1 uppercase tracking-[0.5px] sm:tracking-[1px]'>Alunas<br />transformadas</p>
                 </div>
-                <div className='w-[1px] bg-neutral-800'></div>
-                <div className='text-center'>
-                    <p className='stat-number'>98%</p>
-                    <p className='stat-label'>Taxa de<br />satisfação</p>
+                <div className='w-[1px] h-10 sm:h-12 bg-neutral-800 shrink-0'></div>
+                <div className='text-center flex-1'>
+                    <p className='font-bold text-[25px] sm:text-[33px] text-bgreen leading-none'>98%</p>
+                    <p className='font-light text-[10px] sm:text-[13px] text-white/60 mt-1 uppercase tracking-[0.5px] sm:tracking-[1px]'>Taxa de<br />satisfação</p>
                 </div>
             </div>
             <div className='section-divider'></div>
@@ -104,7 +104,7 @@ export function TargetAudience({ scrollToPlanos }) {
         <section className='text-white px-4 py-10' aria-label="Para quem é a consultoria">
             <div className='max-w-[650px] mx-auto'>
                 <div className='reveal text-center'>
-                    <span className='highlight-tag bg-red-500/10 text-red-400 border border-red-500/20'>
+                    <span className='inline-block px-[14px] py-[4px] rounded-[20px] text-[12px] font-psemibold tracking-[1.5px] uppercase bg-red-500/10 text-red-400 border border-red-500/20'>
                         Pare de se sabotar
                     </span>
                     <h2 className='text-[28px] sm:text-[34px] font-psemibold mt-4 leading-[34px] sm:leading-[40px]'>
@@ -134,7 +134,7 @@ export function TargetAudience({ scrollToPlanos }) {
                     ))}
                 </div>
 
-                <div className='text-center mt-8 reveal'>
+                <div className='text-center mt-8 reveal px-5'>
                     <button
                         onClick={() => {
                             trackEvent("ScrollToPlans", {

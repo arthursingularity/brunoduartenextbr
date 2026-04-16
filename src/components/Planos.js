@@ -1,12 +1,16 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { trackEvent } from '../utils/analytics';
 
 export const Pricing = forwardRef((props, ref) => {
+    const [showSemestral, setShowSemestral] = useState(false);
+    const [showTrimestral, setShowTrimestral] = useState(false);
+    const [showMensal, setShowMensal] = useState(false);
+
     return (
         <section ref={ref} className='px-4 py-10 text-white' id="planos" aria-label="Planos e preços">
             <div className='max-w-[1200px] mx-auto'>
                 <div className='reveal text-center'>
-                    <span className='highlight-tag bg-bgreen/10 text-bgreen border border-bgreen/20'>
+                    <span className='inline-block px-[14px] py-[4px] rounded-[20px] text-[12px] font-psemibold tracking-[1.5px] uppercase bg-bgreen/10 text-bgreen border border-bgreen/20'>
                         Escolha o seu plano
                     </span>
                     <h2 className='text-[28px] sm:text-[34px] font-psemibold mt-4'>
@@ -25,7 +29,7 @@ export const Pricing = forwardRef((props, ref) => {
 
                 <div className='mt-8 space-y-4 lg:flex lg:gap-5 lg:justify-center lg:space-y-0'>
                     {/* PLANO SEMESTRAL */}
-                    <div className='reveal-scale plan-card plan-card-featured lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.3s' }}>
+                    <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] border-2 border-bgreen/40 shadow-[0_0_40px_rgba(170,255,0,0.08)] hover:shadow-[0_0_50px_rgba(170,255,0,0.15)] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.3s' }}>
                         <div className='bg-gradient-to-br from-bgreen to-green-500 p-4 py-3 space-y-2 text-black'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold'>Semestral</p>
@@ -37,7 +41,12 @@ export const Pricing = forwardRef((props, ref) => {
                                 <p className='text-red-500 font-semibold line-through'>De R$ 1320</p>
                                 <div className='flex flex-col'>
                                     <p className='font-bold text-[32px]'>R$658 <span className='text-[16px] font-medium opacity-80'>à vista</span></p>
-                                    <p className='text-[16px] font-regular opacity-90'>ou 6x de <span className='font-semibold text-black'>R$109,70</span></p>
+                                    <div className='flex justify-between items-center'>
+                                        <p className='text-[16px] font-regular opacity-90'>ou 6x de <span className='font-semibold text-black'>R$109,70</span></p>
+                                        <button onClick={() => setShowSemestral(!showSemestral)} className="text-[14px] font-semibold opacity-80 hover:opacity-100 transition-opacity underline">
+                                            {showSemestral ? 'Ocultar benefícios' : 'Ver benefícios'}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div className='pt-3'>
@@ -51,37 +60,39 @@ export const Pricing = forwardRef((props, ref) => {
                                         });
                                         window.open("https://wa.me/553196450850?text=Ol%C3%A1%2C%20gostaria%20de%20assinar%20o%20Plano%20Semestral%20da%20consultoria.", "_blank");
                                     }}
-                                    className="buttonHover font-psemibold bg-black text-bgreen p-3.5 w-full rounded-xl text-[17px]"
+                                    className="hover:brightness-75 transition-all cursor-pointer font-psemibold bg-black text-bgreen p-3.5 w-full rounded-xl text-[17px]"
                                 >
                                     QUERO ESSE PLANO →
                                 </button>
                             </div>
                         </div>
-                        <div className='space-y-2.5 p-4 text-neutral-200 text-left text-[14px]'>
-                            {[
-                                'Acompanhamento com montagem de treinos personalizados para seus objetivos, trocados a cada 45 dias',
-                                'App de treinos com vídeos dos exercícios',
-                                'Suporte diário para retirar dúvidas',
-                                'Caso ainda tenha dúvidas, pode gravar o exercício e me enviar para avaliação e correção',
-                                'Avaliação periódica de resultados por fotos',
-                                'Contato feito por mim semanalmente para acompanhar a evolução',
-                                'E-book com dicas para otimizar seus resultados',
-                                'E-book com dicas de receitas fit para auxiliar no dia a dia',
-                                <><span className="font-medium text-white">1 mês grátis</span></>,
-                                <><span className="font-medium text-white">Bônus:</span> uma consulta com nutricionista</>,
-                            ].map((item, i) => (
-                                <div key={i}>
-                                    <div className='flex items-center gap-2.5'>
-                                        <img className="w-[26px] flex-shrink-0" src="./imagens/check.png" alt="" />
-                                        <p className='leading-[20px]'>{item}</p>
+                        {showSemestral && (
+                            <div className='details-card space-y-2.5 p-4 text-neutral-200 text-left text-[14px]'>
+                                {[
+                                    'Acompanhamento com montagem de treinos personalizados para seus objetivos, trocados a cada 45 dias',
+                                    'App de treinos com vídeos dos exercícios',
+                                    'Suporte diário para retirar dúvidas',
+                                    'Caso ainda tenha dúvidas, pode gravar o exercício e me enviar para avaliação e correção',
+                                    'Avaliação periódica de resultados por fotos',
+                                    'Contato feito por mim semanalmente para acompanhar a evolução',
+                                    'E-book com dicas para otimizar seus resultados',
+                                    'E-book com dicas de receitas fit para auxiliar no dia a dia',
+                                    <><span className="font-medium text-white">1 mês grátis</span></>,
+                                    <><span className="font-medium text-white">Bônus:</span> uma consulta com nutricionista</>,
+                                ].map((item, i) => (
+                                    <div key={i}>
+                                        <div className='flex items-center gap-2.5'>
+                                            <img className="w-[26px] flex-shrink-0" src="./imagens/check.png" alt="" />
+                                            <p className='leading-[20px]'>{item}</p>
+                                        </div>
+                                        {i < 9 && <hr className='border-neutral-800 mt-2.5' />}
                                     </div>
-                                    {i < 9 && <hr className='border-neutral-800 mt-2.5' />}
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                     {/* PLANO TRIMESTRAL */}
-                    <div className='reveal-scale plan-card lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.15s' }}>
+                    <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.15s' }}>
                         <div className='bg-neutral-800 p-4 py-3 space-y-2'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold'>Trimestral</p>
@@ -90,10 +101,14 @@ export const Pricing = forwardRef((props, ref) => {
                                 <p className='text-red-400 line-through font-medium'>De R$ 660</p>
                                 <div className='flex flex-col gap-1'>
                                     <p className='font-bold text-[32px]'>R$419 <span className='text-[16px] font-regular text-neutral-400'>à vista</span></p>
-                                    <p className='text-[16px] font-regular text-neutral-300'>ou 3x de <span className='font-semibold text-white'>R$139,70</span></p>
+                                    <div className='flex justify-between items-center'>
+                                        <p className='text-[16px] font-regular text-neutral-300'>ou 3x de <span className='font-semibold text-white'>R$139,70</span></p>
+                                        <button onClick={() => setShowTrimestral(!showTrimestral)} className="text-[14px] text-neutral-400 hover:text-white transition-colors underline">
+                                            {showTrimestral ? 'Ocultar benefícios' : 'Ver benefícios'}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-
                             <div className='pt-3'>
                                 <button
                                     onClick={() => {
@@ -105,35 +120,37 @@ export const Pricing = forwardRef((props, ref) => {
                                         });
                                         window.open("https://wa.me/553196450850?text=Ol%C3%A1%2C%20gostaria%20de%20assinar%20o%20Plano%20Trimestral%20da%20consultoria.", "_blank");
                                     }}
-                                    className="buttonHover font-psemibold bg-bgreen text-black p-3.5 w-full rounded-xl text-[17px]"
+                                    className="hover:brightness-75 transition-all cursor-pointer font-psemibold bg-bgreen text-black p-3.5 w-full rounded-xl text-[17px]"
                                 >
                                     QUERO ESSE PLANO →
                                 </button>
                             </div>
                         </div>
-                        <div className='space-y-2.5 p-4 text-neutral-200 text-left text-[14px]'>
-                            {[
-                                'Acompanhamento com montagem de treinos personalizados para seus objetivos, trocados a cada 45 dias',
-                                'App de treinos com vídeos dos exercícios',
-                                'Suporte diário para retirar dúvidas',
-                                'Caso ainda tenha dúvidas, pode gravar o exercício e me enviar para avaliação e correção',
-                                'Avaliação periódica de resultados por fotos',
-                                'Contato feito por mim semanalmente para acompanhar a evolução',
-                                'E-book com dicas para otimizar seus resultados',
-                                'E-book com dicas de receitas fit para auxiliar no dia a dia',
-                            ].map((item, i) => (
-                                <div key={i}>
-                                    <div className='flex items-center gap-2.5'>
-                                        <img className="w-[26px] flex-shrink-0" src="./imagens/check.png" alt="" />
-                                        <p className='leading-[20px]'>{item}</p>
+                        {showTrimestral && (
+                            <div className='details-card space-y-2.5 p-4 text-neutral-200 text-left text-[14px]'>
+                                {[
+                                    'Acompanhamento com montagem de treinos personalizados para seus objetivos, trocados a cada 45 dias',
+                                    'App de treinos com vídeos dos exercícios',
+                                    'Suporte diário para retirar dúvidas',
+                                    'Caso ainda tenha dúvidas, pode gravar o exercício e me enviar para avaliação e correção',
+                                    'Avaliação periódica de resultados por fotos',
+                                    'Contato feito por mim semanalmente para acompanhar a evolução',
+                                    'E-book com dicas para otimizar seus resultados',
+                                    'E-book com dicas de receitas fit para auxiliar no dia a dia',
+                                ].map((item, i) => (
+                                    <div key={i}>
+                                        <div className='flex items-center gap-2.5'>
+                                            <img className="w-[26px] flex-shrink-0" src="./imagens/check.png" alt="" />
+                                            <p className='leading-[20px]'>{item}</p>
+                                        </div>
+                                        {i < 7 && <hr className='border-neutral-800 mt-2.5' />}
                                     </div>
-                                    {i < 7 && <hr className='border-neutral-800 mt-2.5' />}
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                     {/* PLANO MENSAL */}
-                    <div className='reveal-scale plan-card lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0s' }}>
+                    <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0s' }}>
                         <div className='bg-neutral-800 p-4 space-y-2'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold'>Mensal</p>
@@ -141,6 +158,12 @@ export const Pricing = forwardRef((props, ref) => {
                             <div className='flex items-baseline gap-1'>
                                 <p className='font-bold text-[32px]'>R$220</p>
                                 <span className='text-[16px] font-regular text-neutral-400'>/mês</span>
+                            </div>
+                            <div className='flex justify-between items-center'>
+                                <p className='text-[16px] font-regular text-neutral-300'>ou 3x de <span className='font-semibold text-white'>R$139,70</span></p>
+                                <button onClick={() => setShowMensal(!showMensal)} className="text-[14px] text-neutral-400 hover:text-white transition-colors underline">
+                                    {showMensal ? 'Ocultar benefícios' : 'Ver benefícios'}
+                                </button>
                             </div>
                             <div className='pt-3'>
                                 <button
@@ -153,32 +176,34 @@ export const Pricing = forwardRef((props, ref) => {
                                         });
                                         window.open("https://wa.me/553196450850?text=Ol%C3%A1%2C%20gostaria%20de%20assinar%20o%20Plano%20Mensal%20da%20consultoria.", "_blank");
                                     }}
-                                    className="buttonHover font-psemibold bg-bgreen text-black p-3.5 w-full rounded-xl text-[17px] transition-all"
+                                    className="hover:brightness-75 transition-all cursor-pointer font-psemibold bg-bgreen text-black p-3.5 w-full rounded-xl text-[17px] transition-all"
                                 >
                                     QUERO ESSE PLANO →
                                 </button>
                             </div>
                         </div>
-                        <div className='space-y-2.5 p-4 text-neutral-200 text-left text-[14px]'>
-                            {[
-                                'Acompanhamento com montagem de treinos personalizados para seus objetivos, trocados a cada 45 dias',
-                                'App de treinos com vídeos dos exercícios',
-                                'Suporte diário para retirar dúvidas',
-                                'Caso ainda tenha dúvidas, pode gravar o exercício e me enviar para avaliação e correção',
-                                'Avaliação periódica de resultados por fotos',
-                                'Contato feito por mim semanalmente para acompanhar a evolução',
-                                'E-book com dicas para otimizar seus resultados',
-                                'E-book com dicas de receitas fit para auxiliar no dia a dia',
-                            ].map((item, i) => (
-                                <div key={i}>
-                                    <div className='flex items-center gap-2.5'>
-                                        <img className="w-[26px] flex-shrink-0" src="./imagens/check.png" alt="" />
-                                        <p className='leading-[20px]'>{item}</p>
+                        {showMensal && (
+                            <div className='details-card space-y-2.5 p-4 text-neutral-200 text-left text-[14px]'>
+                                {[
+                                    'Acompanhamento com montagem de treinos personalizados para seus objetivos, trocados a cada 45 dias',
+                                    'App de treinos com vídeos dos exercícios',
+                                    'Suporte diário para retirar dúvidas',
+                                    'Caso ainda tenha dúvidas, pode gravar o exercício e me enviar para avaliação e correção',
+                                    'Avaliação periódica de resultados por fotos',
+                                    'Contato feito por mim semanalmente para acompanhar a evolução',
+                                    'E-book com dicas para otimizar seus resultados',
+                                    'E-book com dicas de receitas fit para auxiliar no dia a dia',
+                                ].map((item, i) => (
+                                    <div key={i}>
+                                        <div className='flex items-center gap-2.5'>
+                                            <img className="w-[26px] flex-shrink-0" src="./imagens/check.png" alt="" />
+                                            <p className='leading-[20px]'>{item}</p>
+                                        </div>
+                                        {i < 7 && <hr className='border-neutral-800 mt-2.5' />}
                                     </div>
-                                    {i < 7 && <hr className='border-neutral-800 mt-2.5' />}
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -226,7 +251,7 @@ export function Urgency({ scrollToPlanos }) {
                             });
                             scrollToPlanos();
                         }}
-                        className='buttonHover bg-white text-black p-4 w-full rounded-xl max-w-[420px] text-[19px] font-bold transition-all hover:scale-[1.02]'
+                        className='hover:brightness-75 transition-all cursor-pointer bg-white text-black p-4 w-full rounded-xl max-w-[420px] text-[19px] font-bold transition-all hover:scale-[1.02]'
                     >
                         QUERO COMEÇAR AGORA →
                     </button>
