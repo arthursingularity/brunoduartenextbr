@@ -27,10 +27,10 @@ export const Pricing = forwardRef((props, ref) => {
                     </p>
                 </div>
 
-                <div className='mt-8 space-y-4 lg:flex lg:gap-5 lg:justify-center lg:space-y-0'>
+                <div className='mt-8 space-y-4 lg:flex lg:items-start lg:gap-5 lg:justify-center lg:space-y-0'>
                     {/* PLANO SEMESTRAL */}
                     <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] border-2 border-bgreen/40 shadow-[0_0_40px_rgba(170,255,0,0.08)] hover:shadow-[0_0_50px_rgba(170,255,0,0.15)] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.3s' }}>
-                        <div className='bg-gradient-to-br from-bgreen to-green-500 p-4 py-3 space-y-2 text-black'>
+                        <div className='bg-gradient-to-br from-bgreen to-green-500 p-4 pt-3 space-y-2 text-black'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold'>Semestral</p>
                                 <span className='bg-black text-bgreen rounded-full px-3 py-1 text-[11px] font-psemibold tracking-wider uppercase'>
@@ -93,7 +93,7 @@ export const Pricing = forwardRef((props, ref) => {
                     </div>
                     {/* PLANO TRIMESTRAL */}
                     <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.15s' }}>
-                        <div className='bg-neutral-800 p-4 py-3 space-y-2'>
+                        <div className='bg-neutral-800 p-4 pt-3 space-y-2'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold'>Trimestral</p>
                             </div>
@@ -151,7 +151,7 @@ export const Pricing = forwardRef((props, ref) => {
                     </div>
                     {/* PLANO MENSAL */}
                     <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0s' }}>
-                        <div className='bg-neutral-800 p-4 space-y-2'>
+                        <div className='bg-neutral-800 p-4 pt-3 space-y-2'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold'>Mensal</p>
                             </div>
@@ -208,19 +208,41 @@ export const Pricing = forwardRef((props, ref) => {
                 </div>
 
                 {/* GARANTIA & AVISOS */}
-                <div className='reveal mt-10 max-w-[800px] mx-auto glass-card p-5 border-bgreen/30 border'>
-                    <div className='flex flex-col sm:flex-row items-center gap-6 text-[15px] text-neutral-300'>
-                        <div>
-                            <h3 className='text-2xl font-psemibold text-bgreen mb-2 text-center'>GARANTIA INCONDICIONAL DE 7 DIAS</h3>
-                            <span>Se depois de 7 dias você não se adaptar ao método, eu devolvo 100% do seu dinheiro. Sem complicação.</span>
+                <div className='reveal mt-12 max-w-[850px] mx-auto relative group'>
+                    <div className='relative bg-[#111111] rounded-3xl p-6 sm:p-8 border border-white/10'>
+                        <div className='flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10 text-[15px] sm:text-[16px] text-neutral-300'>
+                            <div className='flex-1'>
+                                <div className='flex items-center gap-3.5 mb-3'>
+                                    <div className='bg-bgreen/10 p-2.5 rounded-xl shrink-0 border border-bgreen/20'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-bgreen" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                        </svg>
+                                    </div>
+                                    <h3 className='text-[19px] sm:text-[21px] font-psemibold text-bgreen leading-[1.2]'>
+                                        GARANTIA INCONDICIONAL DE 7 DIAS
+                                    </h3>
+                                </div>
+                                <p className='leading-[1.6] text-neutral-300'>
+                                    Se depois de 7 dias você não se adaptar ao método, eu devolvo <span className='text-white font-medium'>100% do seu dinheiro</span>. Sem complicação.
+                                </p>
+                            </div>
+                            <div className='hidden sm:block w-[1px] self-stretch bg-gradient-to-b from-transparent via-bgreen/50 to-transparent'></div>
+                            <div className='sm:hidden h-[1px] w-full bg-gradient-to-r from-transparent via-bgreen/50 to-transparent'></div>
+                            <div className='flex-1'>
+                                <div className='flex items-start gap-4'>
+                                    <div className='bg-white/5 p-2.5 rounded-xl shrink-0 border border-white/10 mt-1'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                        </svg>
+                                    </div>
+                                    <p className='leading-[1.6] text-neutral-300'>
+                                        Pagamento <span className='text-white font-medium'>recorrente</span> no cartão de crédito, não ocupando o limite com o valor total do plano.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <p className="flex items-center">
-                            <span className="text-[20px]"></span> Pagamento recorrente no cartão de crédito, não ocupando o limite com o valor total do plano.
-                        </p>
                     </div>
                 </div>
-
-
             </div>
         </section>
     );

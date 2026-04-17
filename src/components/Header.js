@@ -53,21 +53,20 @@ export function Hero({ scrollToPlanos }) {
                     <p className='text-[16px] sm:text-[18px] text-neutral-300 mt-8 leading-[24px] animate-fadeInUp max-w-[600px] mx-auto' style={{ animationDelay: '0.6s' }}>
                         Chega de treinos genéricos que não funcionam. Eu vou te mostrar o <span className='font-medium text-white'>caminho exato</span> para reconquistar sua confiança, secar a gordura e esculpir o corpo que você merece — <span className='text-bgreen font-medium'>mesmo com a rotina corrida.</span>
                     </p>
-                </div>
-
-                <div className='text-center mt-4 pb-8 px-5 animate-fadeInUp' style={{ animationDelay: '1.1s' }}>
-                    <button
-                        onClick={() => {
-                            trackEvent("Lead", {
-                                content_name: "CTA Principal",
-                                content_type: "primary_cta"
-                            });
-                            scrollToPlanos();
-                        }}
-                        className='cta-button'
-                    >
-                        <span>QUERO TRANSFORMAR MEU CORPO →</span>
-                    </button>
+                    <div className='text-center mt-10 pb-8 animate-fadeInUp' style={{ animationDelay: '1.1s' }}>
+                        <button
+                            onClick={() => {
+                                trackEvent("Lead", {
+                                    content_name: "CTA Principal",
+                                    content_type: "primary_cta"
+                                });
+                                scrollToPlanos();
+                            }}
+                            className='cta-button'
+                        >
+                            <span>QUERO TRANSFORMAR MEU CORPO →</span>
+                        </button>
+                    </div>
                 </div>
             </section>
         </header>
