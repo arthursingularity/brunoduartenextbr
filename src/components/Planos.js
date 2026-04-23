@@ -155,17 +155,16 @@ export const Pricing = forwardRef((props, ref) => {
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold'>Mensal</p>
                             </div>
-                            <div className='flex items-baseline gap-1'>
-                                <p className='font-bold text-[32px]'>R$220</p>
-                                <span className='text-[16px] font-regular text-neutral-400'>/mês</span>
-                            </div>
                             <div className='flex justify-between items-center'>
-                                <p className='text-[16px] font-regular text-neutral-300'>ou 3x de <span className='font-semibold text-white'>R$139,70</span></p>
+                                <div className='flex items-baseline gap-1'>
+                                    <p className='font-bold text-[32px]'>R$220</p>
+                                    <span className='text-[16px] font-regular text-neutral-400'>/mês</span>
+                                </div>
                                 <button onClick={() => setShowMensal(!showMensal)} className="text-[14px] text-neutral-400 hover:text-white transition-colors underline">
                                     {showMensal ? 'Ocultar benefícios' : 'Ver benefícios'}
                                 </button>
                             </div>
-                            <div className='pt-3'>
+                            <div className='pt-1'>
                                 <button
                                     onClick={() => {
                                         trackEvent("InitiateCheckout", {
