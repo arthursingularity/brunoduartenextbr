@@ -29,41 +29,54 @@ export const Pricing = forwardRef((props, ref) => {
 
                 <div className='mt-8 space-y-4 lg:flex lg:items-start lg:gap-5 lg:justify-center lg:space-y-0'>
                     {/* PLANO SEMESTRAL */}
-                    <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] border-2 border-bgreen/40 shadow-[0_0_40px_rgba(170,255,0,0.08)] hover:shadow-[0_0_50px_rgba(170,255,0,0.15)] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.3s' }}>
-                        <div className='bg-gradient-to-br from-bgreen to-green-500 p-4 pt-3 space-y-2 text-black'>
+                    <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden relative transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] border-2 border-bgreen/40 shadow-[0_0_40px_rgba(170,255,0,0.08)] hover:shadow-[0_0_50px_rgba(170,255,0,0.15)] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.3s' }}>
+                        <div className='bg-gradient-to-br from-bgreen to-green-500 p-4 pt-3 space-y-6 text-black relative'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold'>Semestral</p>
                                 <span className='bg-black text-bgreen rounded-full px-3 py-1 text-[11px] font-psemibold tracking-wider uppercase'>
-                                    Mais vantajoso
+                                    METADE DO PREÇO
                                 </span>
                             </div>
                             <div className='leading-[1.3]'>
                                 <p className='text-red-500 font-semibold line-through'>De R$ 1320</p>
                                 <div className='flex flex-col'>
-                                    <p className='font-bold text-[32px]'>R$658 <span className='text-[16px] font-medium opacity-80'>à vista</span></p>
+                                    <p className='font-bold text-[32px]'>R$718 <span className='text-[16px] font-medium opacity-80'>(pix ou cartão de crédito)</span></p>
                                     <div className='flex justify-between items-center'>
-                                        <p className='text-[16px] font-regular opacity-90'>ou 6x de <span className='font-semibold text-black'>R$109,70</span></p>
-                                        <button onClick={() => setShowSemestral(!showSemestral)} className="text-[14px] font-semibold opacity-80 hover:opacity-100 transition-opacity underline">
+                                        <p className='text-[19px] font-medium opacity-90'>ou 6x de <span className='font-semibold text-black'>R$119,70</span></p>
+                                        <div onClick={() => setShowSemestral(!showSemestral)} className="text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-black text-white buttonHover">
                                             {showSemestral ? 'Ocultar benefícios' : 'Ver benefícios'}
-                                        </button>
+                                            <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showSemestral ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
+                                                arrow_forward_ios
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className='pt-3'>
-                                <button
-                                    onClick={() => {
-                                        trackEvent("InitiateCheckout", {
-                                            content_name: "Plano Semestral",
-                                            content_type: "subscription",
-                                            value: 658,
-                                            currency: "BRL"
-                                        });
-                                        window.open("https://wa.me/553196450850?text=Ol%C3%A1%2C%20gostaria%20de%20assinar%20o%20Plano%20Semestral%20da%20consultoria.", "_blank");
-                                    }}
-                                    className="hover:brightness-75 transition-all cursor-pointer font-psemibold bg-black text-bgreen p-3.5 w-full rounded-xl text-[17px]"
-                                >
-                                    QUERO ESSE PLANO →
-                                </button>
+                            <div className='flex flex-col space-y-4'>
+                                <div className='flex flex-col space-y-2 relative w-full'>
+                                    <div className='flex items-center justify-center gap-1 bg-white border border-neutral-400/70 rounded-xl py-1 w-full'>
+                                        <span className="material-symbols-outlined !text-[23px]">
+                                            redeem
+                                        </span>
+                                        <p className='text-[16px] font-bold'>Bônus: 1 mês grátis!</p>
+                                    </div>
+                                </div>
+                                <div className=''>
+                                    <button
+                                        onClick={() => {
+                                            trackEvent("InitiateCheckout", {
+                                                content_name: "Plano Semestral",
+                                                content_type: "subscription",
+                                                value: 658,
+                                                currency: "BRL"
+                                            });
+                                            window.open("https://wa.me/553196450850?text=Ol%C3%A1%2C%20gostaria%20de%20assinar%20o%20Plano%20Semestral%20da%20consultoria.", "_blank");
+                                        }}
+                                        className="hover:brightness-75 transition-all cursor-pointer font-psemibold bg-black text-bgreen p-3.5 w-full rounded-xl text-[17px]"
+                                    >
+                                        QUERO ESSE PLANO →
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         {showSemestral && (
@@ -91,22 +104,27 @@ export const Pricing = forwardRef((props, ref) => {
                         )}
                     </div>
                     {/* PLANO TRIMESTRAL */}
-                    <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.15s' }}>
-                        <div className='bg-neutral-800 p-4 pt-3 space-y-2'>
+                    <div className='reveal-scale relative bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.15s' }}>
+                        <div className='bg-neutral-800 p-4 pt-3 space-y-7'>
                             <div className='flex justify-between items-center'>
-                                <p className='text-[22px] font-psemibold'>Trimestral</p>
+                                <p className='text-[22px] font-psemibold text-bgreen'>Trimestral</p>
                             </div>
                             <div className='leading-[1.3]'>
-                                <p className='text-red-400 line-through font-medium'>De R$ 660</p>
+                                <p className='text-red-400 line-through font-medium'>De R$ 720</p>
                                 <div className='flex flex-col gap-1'>
-                                    <p className='font-bold text-[32px]'>R$419 <span className='text-[16px] font-regular text-neutral-400'>à vista</span></p>
+                                    <p className='font-bold text-[32px]'>R$479 <span className='text-[14px] font-regular text-neutral-400'>(pix ou cartão de crédito)</span></p>
                                     <div className='flex justify-between items-center'>
-                                        <p className='text-[16px] font-regular text-neutral-300'>ou 3x de <span className='font-semibold text-white'>R$139,70</span></p>
-                                        <button onClick={() => setShowTrimestral(!showTrimestral)} className="text-[14px] text-neutral-400 hover:text-white transition-colors underline">
-                                            {showTrimestral ? 'Ocultar benefícios' : 'Ver benefícios'}
-                                        </button>
+                                        <p className='text-[19px] font-medium text-neutral-300'>ou 3x de <span className='font-semibold text-white'>R$159,70</span></p>
                                     </div>
                                 </div>
+                            </div>
+                            <div
+                                onClick={() => setShowTrimestral(!showTrimestral)}
+                                className="absolute bottom-[60px] right-[16px] text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
+                                {showTrimestral ? 'Ocultar benefícios' : 'Ver benefícios'}
+                                <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showTrimestral ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
+                                    arrow_forward_ios
+                                </span>
                             </div>
                             <div className='pt-3'>
                                 <button
@@ -149,19 +167,24 @@ export const Pricing = forwardRef((props, ref) => {
                         )}
                     </div>
                     {/* PLANO MENSAL */}
-                    <div className='reveal-scale bg-[#191919E6] min-h-[233px] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0s' }}>
-                        <div className='bg-neutral-800 p-4 pt-3 flex flex-col justify-between h-full space-y-[32px]'>
+                    <div className='reveal-scale bg-[#191919E6] relative border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0s' }}>
+                        <div className='bg-neutral-800 p-4 pt-3 flex flex-col space-y-8'>
                             <div className='flex justify-between items-center'>
-                                <p className='text-[22px] font-psemibold'>Mensal</p>
+                                <p className='text-[22px] font-psemibold text-bgreen'>Mensal</p>
                             </div>
                             <div className='flex justify-between items-center'>
                                 <div className='flex items-baseline gap-1'>
-                                    <p className='font-bold text-[32px]'>R$220</p>
+                                    <p className='font-bold text-[32px]'>R$240</p>
                                     <span className='text-[16px] font-regular text-neutral-400'>/mês</span>
                                 </div>
-                                <button onClick={() => setShowMensal(!showMensal)} className="text-[14px] text-neutral-400 hover:text-white transition-colors underline">
+                                <div
+                                onClick={() => setShowMensal(!showMensal)}
+                                    className="absolute bottom-[90px] right-[16px] text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
                                     {showMensal ? 'Ocultar benefícios' : 'Ver benefícios'}
-                                </button>
+                                    <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showMensal ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
+                                        arrow_forward_ios
+                                    </span>
+                                </div>
                             </div>
                             <div className='pt-1'>
                                 <button

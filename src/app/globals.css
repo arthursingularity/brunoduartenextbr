@@ -439,3 +439,8 @@ body {
 .faq-icon.open {
   transform: rotate(45deg);
 }
+
+.buttonHover:hover {
+  filter: brightness(85%);
+  cursor: pointer;
+}

@@ -112,6 +112,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" dir="ltr">
       <head>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..300,0..1,-50..200&display=swap" rel="stylesheet" />
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://connect.facebook.net" />
