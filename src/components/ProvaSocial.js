@@ -10,6 +10,10 @@ const slides = [
     { nome: 'foto6', img: '/slide/6.jpg' },
     { nome: 'foto7', img: '/slide/7.jpg' },
     { nome: 'foto8', img: '/slide/8.jpg' },
+    { nome: 'foto9', img: '/slide/9.jpg' },
+    { nome: 'foto10', img: '/slide/10.jpg' },
+    { nome: 'foto11', img: '/slide/11.jpg' },
+    { nome: 'foto12', img: '/slide/12.jpg' },
 ];
 
 export function BeforeAfter({ scrollToPlanos }) {
