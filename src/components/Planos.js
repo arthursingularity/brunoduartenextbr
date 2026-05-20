@@ -120,7 +120,7 @@ export const Pricing = forwardRef((props, ref) => {
                             </div>
                             <div
                                 onClick={() => setShowTrimestral(!showTrimestral)}
-                                className="absolute bottom-[60px] right-[16px] text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
+                                className="absolute top-[160px] right-[16px] text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
                                 {showTrimestral ? 'Ocultar benefícios' : 'Ver benefícios'}
                                 <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showTrimestral ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
                                     arrow_forward_ios
@@ -179,7 +179,7 @@ export const Pricing = forwardRef((props, ref) => {
                                 </div>
                                 <div
                                 onClick={() => setShowMensal(!showMensal)}
-                                    className="absolute bottom-[90px] right-[16px] text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
+                                    className="absolute top-[117px] right-[16px] text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
                                     {showMensal ? 'Ocultar benefícios' : 'Ver benefícios'}
                                     <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showMensal ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
                                         arrow_forward_ios
