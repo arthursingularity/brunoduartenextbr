@@ -78,14 +78,13 @@ export const Pricing = forwardRef((props, ref) => {
                                     'E-book com dicas para otimizar seus resultados',
                                     'E-book com dicas de receitas fit para auxiliar no dia a dia',
                                     <><span className="font-medium text-white">1 mês grátis</span></>,
-                                    <><span className="font-medium text-white">Bônus:</span> uma consulta com nutricionista</>,
                                 ].map((item, i) => (
                                     <div key={i}>
                                         <div className='flex items-center gap-2.5'>
                                             <img className="w-[26px] flex-shrink-0" src="./imagens/check.png" alt="" />
                                             <p className='leading-[20px]'>{item}</p>
                                         </div>
-                                        {i < 9 && <hr className='border-neutral-800 mt-2.5' />}
+                                        {i < 8 && <hr className='border-neutral-800 mt-2.5' />}
                                     </div>
                                 ))}
                             </div>
@@ -150,8 +149,8 @@ export const Pricing = forwardRef((props, ref) => {
                         )}
                     </div>
                     {/* PLANO MENSAL */}
-                    <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0s' }}>
-                        <div className='bg-neutral-800 p-4 pt-3 space-y-2'>
+                    <div className='reveal-scale bg-[#191919E6] min-h-[233px] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0s' }}>
+                        <div className='bg-neutral-800 p-4 pt-3 flex flex-col justify-between h-full space-y-[32px]'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold'>Mensal</p>
                             </div>
