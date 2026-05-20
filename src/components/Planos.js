@@ -43,14 +43,14 @@ export const Pricing = forwardRef((props, ref) => {
                                     <p className='font-bold text-[32px]'>R$718 <span className='text-[16px] font-medium opacity-80'>(pix ou cartão de crédito)</span></p>
                                     <div className='flex justify-between items-center'>
                                         <p className='text-[19px] font-medium opacity-90'>ou 6x de <span className='font-semibold text-black'>R$119,70</span></p>
-                                        <div onClick={() => setShowSemestral(!showSemestral)} className="text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-black text-white buttonHover">
-                                            {showSemestral ? 'Ocultar benefícios' : 'Ver benefícios'}
-                                            <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showSemestral ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
-                                                arrow_forward_ios
-                                            </span>
-                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div onClick={() => setShowSemestral(!showSemestral)} className="absolute top-[138px] right-4 text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-black text-white buttonHover">
+                                {showSemestral ? 'Ocultar benefícios' : 'Ver benefícios'}
+                                <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showSemestral ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
+                                    arrow_forward_ios
+                                </span>
                             </div>
                             <div className='flex flex-col space-y-4'>
                                 <div className='flex flex-col space-y-2 relative w-full'>
@@ -178,7 +178,7 @@ export const Pricing = forwardRef((props, ref) => {
                                     <span className='text-[16px] font-regular text-neutral-400'>/mês</span>
                                 </div>
                                 <div
-                                onClick={() => setShowMensal(!showMensal)}
+                                    onClick={() => setShowMensal(!showMensal)}
                                     className="absolute top-[117px] right-[16px] text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
                                     {showMensal ? 'Ocultar benefícios' : 'Ver benefícios'}
                                     <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showMensal ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
