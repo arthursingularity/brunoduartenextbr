@@ -70,7 +70,7 @@ export const Pricing = forwardRef((props, ref) => {
                                                 value: 658,
                                                 currency: "BRL"
                                             });
-                                            window.open("https://wa.me/553196450850?text=Ol%C3%A1%2C%20gostaria%20de%20assinar%20o%20Plano%20Semestral%20da%20consultoria.", "_blank");
+                                            window.open("https://buy.stripe.com/6oU6oG1wP2Xj4DAg2UfQI1n", "_blank");
                                         }}
                                         className="hover:brightness-75 transition-all cursor-pointer font-psemibold bg-black text-bgreen p-3.5 w-full rounded-xl text-[17px]"
                                     >
@@ -135,7 +135,7 @@ export const Pricing = forwardRef((props, ref) => {
                                             value: 419,
                                             currency: "BRL"
                                         });
-                                        window.open("https://wa.me/553196450850?text=Ol%C3%A1%2C%20gostaria%20de%20assinar%20o%20Plano%20Trimestral%20da%20consultoria.", "_blank");
+                                        window.open("https://buy.stripe.com/4gMdR82ATbtP0nk9EwfQI1o", "_blank");
                                     }}
                                     className="hover:brightness-75 transition-all cursor-pointer font-psemibold bg-bgreen text-black p-3.5 w-full rounded-xl text-[17px]"
                                 >
@@ -195,7 +195,7 @@ export const Pricing = forwardRef((props, ref) => {
                                             value: 220,
                                             currency: "BRL"
                                         });
-                                        window.open("https://wa.me/553196450850?text=Ol%C3%A1%2C%20gostaria%20de%20assinar%20o%20Plano%20Mensal%20da%20consultoria.", "_blank");
+                                        window.open("https://buy.stripe.com/7sY5kCb7p41neea3g8fQI1p", "_blank");
                                     }}
                                     className="hover:brightness-75 transition-all cursor-pointer font-psemibold bg-bgreen text-black p-3.5 w-full rounded-xl text-[17px] transition-all"
                                 >
