@@ -48,7 +48,7 @@ export function BeforeAfter({ scrollToPlanos }) {
                             <img className="w-[22px]" src="./imagens/setaesq.png" alt="Anterior" />
                         </button>
 
-                        <div className="max-w-[450px] aspect-[5/5] relative overflow-hidden rounded-xl bg-neutral-800">
+                        <div className="w-full max-w-[450px] aspect-[5/5] relative overflow-hidden rounded-xl bg-neutral-800">
                             <img
                                 src={current.img}
                                 alt={`Resultado ${current.nome}`}
