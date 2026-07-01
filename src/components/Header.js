@@ -43,8 +43,8 @@ export function Hero({ scrollToPlanos }) {
                     <div className='flex justify-center mt-8 animate-fadeInUp' style={{ animationDelay: '0.8s' }}>
                         <video
                             className="bg-neutral-900 rounded-2xl w-full max-w-[700px] border border-neutral-700/50 shadow-2xl shadow-black/50"
-                            src="https://res.cloudinary.com/dsgkc7epl/video/upload/v1761693312/28-10-25_v%C3%ADdeo_final_nfcfnb.mp4"
-                            poster="./imagens/thumb.JPEG"
+                            src="https://res.cloudinary.com/dsgkc7epl/video/upload/BRUNO_DUARTE_SITE_xtxp3d.mp4?_s=vp-3.7.2"
+                            poster="./imagens/thumb3.png"
                             controls
                             playsInline
                         />

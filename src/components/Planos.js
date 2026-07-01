@@ -30,7 +30,7 @@ export const Pricing = forwardRef((props, ref) => {
                 <div className='mt-8 space-y-4 lg:flex lg:items-start lg:gap-5 lg:justify-center lg:space-y-0'>
                     {/* PLANO SEMESTRAL */}
                     <div className='reveal-scale bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden relative transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] border-2 border-bgreen/40 shadow-[0_0_40px_rgba(170,255,0,0.08)] hover:shadow-[0_0_50px_rgba(170,255,0,0.15)] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.3s' }}>
-                        <div className='bg-gradient-to-br from-bgreen to-green-500 p-4 pt-3 space-y-6 text-black relative'>
+                        <div className='bg-gradient-to-br from-bgreen to-green-500 p-4 pt-3 space-y-5 text-black relative'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold'>Semestral</p>
                                 <span className='bg-black text-bgreen rounded-full px-3 py-1 text-[11px] font-psemibold tracking-wider uppercase'>
@@ -40,18 +40,19 @@ export const Pricing = forwardRef((props, ref) => {
                             <div className='leading-[1.3]'>
                                 <p className='text-red-500 font-semibold line-through'>De R$ 1320</p>
                                 <div className='flex flex-col'>
-                                    <p className='font-bold text-[32px]'>R$718 <span className='text-[16px] font-medium opacity-80'>(pix ou cartão de crédito)</span></p>
+                                    <p className='font-bold text-[32px]'>R$718 <span className='text-[14px] font-medium opacity-80'>(pix ou cartão de crédito)</span></p>
                                     <div className='flex justify-between items-center'>
                                         <p className='text-[19px] font-medium opacity-90'>ou 6x de <span className='font-semibold text-black'>R$119,70</span></p>
+                                        <div onClick={() => setShowSemestral(!showSemestral)} className="text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-black text-white buttonHover">
+                                            Benefícios
+                                            <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showSemestral ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
+                                                arrow_forward_ios
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div onClick={() => setShowSemestral(!showSemestral)} className="absolute top-[138px] right-4 text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-black text-white buttonHover">
-                                {showSemestral ? 'Ocultar benefícios' : 'Ver benefícios'}
-                                <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showSemestral ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
-                                    arrow_forward_ios
-                                </span>
-                            </div>
+
                             <div className='flex flex-col space-y-4'>
                                 <div className='flex flex-col space-y-2 relative w-full'>
                                     <div className='flex items-center justify-center gap-1 bg-white border border-neutral-400/70 rounded-xl py-1 w-full'>
@@ -105,7 +106,7 @@ export const Pricing = forwardRef((props, ref) => {
                     </div>
                     {/* PLANO TRIMESTRAL */}
                     <div className='reveal-scale relative bg-[#191919E6] border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0.15s' }}>
-                        <div className='bg-neutral-800 p-4 pt-3 space-y-7'>
+                        <div className='bg-neutral-800 p-4 pt-3 space-y-5'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold text-bgreen'>Trimestral</p>
                             </div>
@@ -115,18 +116,18 @@ export const Pricing = forwardRef((props, ref) => {
                                     <p className='font-bold text-[32px]'>R$479 <span className='text-[14px] font-regular text-neutral-400'>(pix ou cartão de crédito)</span></p>
                                     <div className='flex justify-between items-center'>
                                         <p className='text-[19px] font-medium text-neutral-300'>ou 3x de <span className='font-semibold text-white'>R$159,70</span></p>
+                                        <div
+                                            onClick={() => setShowTrimestral(!showTrimestral)}
+                                            className="text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
+                                            Benefícios
+                                            <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showTrimestral ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
+                                                arrow_forward_ios
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                onClick={() => setShowTrimestral(!showTrimestral)}
-                                className="absolute top-[160px] right-[16px] text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
-                                {showTrimestral ? 'Ocultar benefícios' : 'Ver benefícios'}
-                                <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showTrimestral ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
-                                    arrow_forward_ios
-                                </span>
-                            </div>
-                            <div className='pt-3'>
+                            <div>
                                 <button
                                     onClick={() => {
                                         trackEvent("InitiateCheckout", {
@@ -168,7 +169,7 @@ export const Pricing = forwardRef((props, ref) => {
                     </div>
                     {/* PLANO MENSAL */}
                     <div className='reveal-scale bg-[#191919E6] relative border border-white/5 rounded-[20px] overflow-hidden transition-all duration-400 ease hover:border-bgreen/15 hover:-translate-y-[6px] lg:w-[380px] max-w-[470px] mx-auto lg:mx-0' style={{ transitionDelay: '0s' }}>
-                        <div className='bg-neutral-800 p-4 pt-3 flex flex-col space-y-8'>
+                        <div className='bg-neutral-800 p-4 pt-3 flex flex-col space-y-5'>
                             <div className='flex justify-between items-center'>
                                 <p className='text-[22px] font-psemibold text-bgreen'>Mensal</p>
                             </div>
@@ -179,8 +180,8 @@ export const Pricing = forwardRef((props, ref) => {
                                 </div>
                                 <div
                                     onClick={() => setShowMensal(!showMensal)}
-                                    className="absolute top-[117px] right-[16px] text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
-                                    {showMensal ? 'Ocultar benefícios' : 'Ver benefícios'}
+                                    className="text-[11px] flex items-center gap-1 pl-3 pr-2 py-1 rounded-xl font-medium hover:opacity-100 transition-opacity bg-white text-black buttonHover">
+                                    Benefícios
                                     <span className={`material-symbols-outlined !text-[13px] transition-all duration-400 ease ${showMensal ? 'rotate-[-90deg]' : 'rotate-[90deg]'}`}>
                                         arrow_forward_ios
                                     </span>
